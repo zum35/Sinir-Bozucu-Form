@@ -115,24 +115,26 @@ export default function App() {
   })
 
   return (
+    
     <form onSubmit={fakeSubmit}>
       <h1>Dünyanın En Sinir Bozucu Formu</h1>
 
-      <input
+      <input value={formData.firstName}
         type='text'
         placeholder='Adı'
         onChange={handleChange}
         name='firstName'
+        
       />
 
-      <input
+      <input value={formData.lastName}
         type='text'
         placeholder='Soyadı'
         onChange={handleChange}
         name='lastName'
       />
 
-      <input
+      <input value={formData.email}
         type='email'
         placeholder='Email'
         onChange={handleChange}
@@ -145,18 +147,19 @@ export default function App() {
         </legend>
         <div className='privacy-container'>
           <label>
-            <input
+            <input 
               type='radio'
               id='yes'
               name='privacyResponse'
-              value='yes'
+              value={formData.privacyResponse}
               onChange={handleChange}
             />
             Evet
           </label>
 
           <label>
-            <input
+            <input 
+            checked={formData.privacyResponse==='no'}
               type='radio'
               id='no'
               name='privacyResponse'
@@ -172,7 +175,7 @@ export default function App() {
               type='radio'
               id='absolutely'
               name='privacyResponse'
-              value='absolutely'
+              value={formData.privacyResponse==='absolutely'}
               onChange={handleChange}
             />
             Kesinlikle
@@ -186,7 +189,8 @@ export default function App() {
           değerlendirirsiniz?
         </legend>
 
-        <select onChange={handleChange} name='rating' defaultValue='10'>
+        <select onChange={handleChange} name='rating' defaultValue='10'
+        value={formData.rating}>
           <option value='1'>1</option>
           <option value='2'>2</option>
           <option value='3'>3</option>
@@ -205,6 +209,7 @@ export default function App() {
           type='checkbox'
           name='marketingResponse'
           onChange={handleChange}
+          checked={formData.marketingResponse}
         />
 
         <div className='checkmark'></div>
